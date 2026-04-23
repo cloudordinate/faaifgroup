@@ -1,0 +1,299 @@
+/* =============================================================
+   FAAIF Group Design System — Tokens
+   "The Modern Monolith"
+   ============================================================= */
+
+/* Fonts ---------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* -----------------------------------------------------------
+     COLOR TOKENS
+     ----------------------------------------------------------- */
+
+  /* Base palette — "The Modern Monolith" */
+  --navy-950: #020617;
+  --navy-900: #0f172a; /* Primary. Deep Midnight Navy */
+  --navy-800: #1e293b; /* Elevated dark surface */
+  --navy-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b; /* Secondary. Slate */
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50: #f8fafc; /* Alt background */
+  --white: #ffffff;
+
+  /* Accent — used scarcely */
+  --amber-600: #d97706; /* Hover for amber CTA */
+  --amber-500: #f59e0b; /* Primary accent (Gold) */
+  --amber-400: #fbbf24;
+  --sky-500: #38bdf8; /* Secondary accent option */
+
+  /* Subsidiary brand accents — only used on hover of their card */
+  --brand-cloudordinate: #38bdf8; /* Sky — logistics / tech */
+  --brand-skyfitstrength: #f59e0b; /* Amber — fitness */
+  --brand-getmoodzy: #f43f5e; /* Rose — lifestyle */
+
+  /* Semantic — foreground */
+  --fg-1: var(--navy-900); /* Primary text */
+  --fg-2: var(--slate-600); /* Secondary text */
+  --fg-3: var(--slate-500); /* Tertiary / muted */
+  --fg-4: var(--slate-400); /* Placeholders */
+  --fg-inverse: var(--white);
+  --fg-inverse-2: rgba(255, 255, 255, 0.72);
+  --fg-inverse-3: rgba(255, 255, 255, 0.48);
+  --fg-accent: var(--amber-500);
+
+  /* Semantic — background */
+  --bg-1: var(--white);
+  --bg-2: var(--slate-50);
+  --bg-3: var(--slate-100);
+  --bg-dark: var(--navy-900);
+  --bg-dark-elevated: var(--navy-800);
+  --bg-nav-glass: rgba(255, 255, 255, 0.72);
+
+  /* Semantic — borders */
+  --border-1: var(--slate-200);
+  --border-2: var(--slate-300);
+  --border-dark: rgba(255, 255, 255, 0.08);
+  --border-focus: var(--amber-500);
+
+  /* -----------------------------------------------------------
+     TYPOGRAPHY TOKENS
+     ----------------------------------------------------------- */
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+  /* Type scale — modular, matches 1.25 ratio loosely tuned */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-md: 18px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-3xl: 40px;
+  --text-4xl: 56px;
+  --text-5xl: 72px;
+  --text-6xl: 88px;
+
+  --lh-tight: 1.1;
+  --lh-display: 1.15;
+  --lh-heading: 1.3;
+  --lh-body: 1.6;
+  --lh-loose: 1.75;
+
+  --tracking-display: -0.02em;
+  --tracking-heading: -0.01em;
+  --tracking-body: 0;
+  --tracking-label: 0.04em;
+  --tracking-caps: 0.08em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* -----------------------------------------------------------
+     SPACING — 4px base
+     ----------------------------------------------------------- */
+
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 160px;
+
+  /* -----------------------------------------------------------
+     RADII
+     ----------------------------------------------------------- */
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-pill: 9999px;
+
+  /* -----------------------------------------------------------
+     ELEVATION
+     ----------------------------------------------------------- */
+
+  --shadow-1: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 1px rgba(15, 23, 42, 0.02);
+  --shadow-2: 0 4px 12px rgba(15, 23, 42, 0.06), 0 2px 4px rgba(15, 23, 42, 0.03);
+  --shadow-3: 0 16px 40px rgba(15, 23, 42, 0.08), 0 4px 8px rgba(15, 23, 42, 0.04);
+  --shadow-nav: 0 1px 0 rgba(15, 23, 42, 0.06);
+  --shadow-focus: 0 0 0 2px var(--white), 0 0 0 4px var(--amber-500);
+
+  /* -----------------------------------------------------------
+     MOTION
+     ----------------------------------------------------------- */
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-micro: 160ms;
+  --dur-short: 220ms;
+  --dur-medium: 400ms;
+  --dur-long: 600ms;
+
+  /* -----------------------------------------------------------
+     LAYOUT
+     ----------------------------------------------------------- */
+
+  --container-max: 1200px;
+  --gutter-desktop: 48px;
+  --gutter-mobile: 24px;
+  --nav-height: 72px;
+
+  /* Glass */
+  --blur-nav: blur(16px) saturate(140%);
+}
+
+/* =============================================================
+   SEMANTIC TYPOGRAPHY — use these as classes or element-level
+   ============================================================= */
+
+.display-1,
+.h-display {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  font-size: clamp(48px, 7vw, var(--text-6xl));
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
+  color: var(--fg-1);
+}
+
+.h1 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  font-size: clamp(36px, 5vw, var(--text-4xl));
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
+  color: var(--fg-1);
+}
+
+.h2 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-3xl);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--fg-1);
+}
+
+.h3 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-2xl);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--fg-1);
+}
+
+.h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-xl);
+  line-height: var(--lh-heading);
+  color: var(--fg-1);
+}
+
+.editorial {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-3xl);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--fg-1);
+  font-style: italic;
+  font-variation-settings: 'opsz' 144;
+}
+
+.lede {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-lg);
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+}
+
+.body,
+p {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-base);
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+}
+
+.caption {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm);
+  line-height: var(--lh-heading);
+  color: var(--fg-3);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-xs);
+  line-height: 1;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--fg-accent);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-sm);
+  color: var(--fg-2);
+}
+
+/* Base ---------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--lh-body);
+  color: var(--fg-1);
+  background: var(--bg-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}

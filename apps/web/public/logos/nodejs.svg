@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <path d="M64 6L14 34v60l50 28 50-28V34L64 6z" fill="#539E43"></path>
+  <path d="M64 14L22 38v52l42 24 42-24V38L64 14z" fill="#333"></path>
+  <path d="M64 22L30 42v44l34 20 34-20V42L64 22z" fill="#539E43" opacity=".85"></path>
+  <g font-family="Inter, sans-serif" font-weight="700" fill="#fff" text-anchor="middle">
+    <text x="64" y="72" font-size="18">node</text>
+    <text x="64" y="88" font-size="10" opacity=".8">JS</text>
+  </g>
+</svg>

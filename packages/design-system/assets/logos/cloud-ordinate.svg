@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="none">
+  <g stroke="currentColor" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 24c0-4 3-7 7-7 3 0 5 2 5 2s2-4 7-4 8 3 8 7-3 7-7 7H13c-4 0-7-2-7-5z"></path>
+  </g>
+  <g font-family="Inter, sans-serif" font-weight="600" letter-spacing="-0.015em">
+    <text x="44" y="26" font-size="18" fill="currentColor">Cloud Ordinate</text>
+  </g>
+</svg>
