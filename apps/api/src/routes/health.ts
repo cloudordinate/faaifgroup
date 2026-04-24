@@ -1,10 +1,10 @@
-import { Router, type Request, type Response, type IRouter } from 'express';
+import { Router, type Router as ExpressRouter } from 'express';
 
-const router: IRouter = Router();
+const router: ExpressRouter = Router();
 
 const VERSION = process.env.npm_package_version ?? '1.0.0';
 
-router.get('/', (_req: Request, res: Response) => {
+router.get('/', (_req, res) => {
   res.json({ ok: true, version: VERSION });
 });
 

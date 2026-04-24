@@ -1,11 +1,11 @@
-import { Router, type Request, type Response, type IRouter } from 'express';
+import { Router, type Router as ExpressRouter } from 'express';
 import { InquirySchema } from 'design-system';
 import { prisma } from '../lib/prisma';
 import { sendInquiryEmails } from '../lib/mailer';
 
-const router: IRouter = Router();
+const router: ExpressRouter = Router();
 
-router.post('/', async (req: Request, res: Response) => {
+router.post('/', async (req, res) => {
   const parsed = InquirySchema.safeParse(req.body);
   if (!parsed.success) {
     res.status(400).json({
