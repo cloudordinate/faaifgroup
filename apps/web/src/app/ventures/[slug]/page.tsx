@@ -1,95 +1,66 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { SiteShell } from '@/components/layout/SiteShell';
-import { Container } from '@/components/ui/Container';
-import { Eyebrow } from '@/components/ui/Eyebrow';
-import { findVentureBySlug, ventures } from '@/lib/ventures';
-import { withHash } from '@/lib/hashRoute';
-
-interface VentureDetailPageProps {
-  params: { slug: string };
-}
+import { ventures } from '@/lib/site-data';
 
 export function generateStaticParams() {
   return ventures.map((venture) => ({ slug: venture.slug }));
 }
 
-export default function VentureDetailPage({ params }: VentureDetailPageProps) {
-  const venture = findVentureBySlug(params.slug);
+export default function VentureDetailPage({ params }: { params: { slug: string } }) {
+  const venture = ventures.find((item) => item.slug === params.slug);
 
   if (!venture) {
     notFound();
   }
 
   return (
-    <SiteShell>
-      <section className="bg-white py-16 md:py-20">
-        <Container>
-          <Eyebrow className="mb-4">Ventures · {venture.name}</Eyebrow>
-          <h1 className="max-w-[920px] text-[50px] font-bold leading-[1.04] tracking-[-0.03em] text-navy-900 md:text-[64px]">
-            {venture.name}
-          </h1>
-          <p className="mt-5 max-w-[760px] text-[17px] leading-relaxed text-slate-600">
-            {venture.tagline}
-          </p>
-          <p className="mt-4 max-w-[760px] text-[15px] leading-relaxed text-slate-600">
-            {venture.summary}
-          </p>
-          <p className="mt-6 text-[13px] text-slate-500">
-            Sector: <span className="font-medium text-navy-900">{venture.sector}</span> · Region:{' '}
-            <span className="font-medium text-navy-900">{venture.region}</span>
-          </p>
-        </Container>
+    <main className="pb-16 pt-14">
+      <section className="mx-auto max-w-container px-6 md:px-12 md:pt-10">
+        <p className="eyebrow mb-4">Venture detail</p>
+        <h1 className="max-w-3xl text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-navy-900 md:text-6xl">
+          {venture.name}
+        </h1>
+        <p className="mt-3 text-xs uppercase tracking-[0.08em] text-slate-500">
+          {venture.category}
+        </p>
+        <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600">{venture.detail}</p>
       </section>
 
-      <section className="bg-slate-50 py-12 md:py-16">
-        <Container>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_1fr]">
-            <article className="rounded-xl border border-slate-200 bg-white p-6">
-              <h2 className="text-[28px] font-semibold tracking-[-0.02em] text-navy-900">
-                Current focus
-              </h2>
-              <ul className="mt-4 space-y-3 text-[14px] leading-relaxed text-slate-600">
-                {venture.focus.map((focusArea) => (
-                  <li key={focusArea} className="flex items-start gap-2">
-                    <span
-                      className="mt-[9px] h-1.5 w-1.5 rounded-full bg-amber-500"
-                      aria-hidden="true"
-                    />
-                    <span>{focusArea}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-
-            <article className="rounded-xl border border-slate-200 bg-white p-6">
-              <h2 className="text-[28px] font-semibold tracking-[-0.02em] text-navy-900">
-                Operating metrics
-              </h2>
-              <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
-                {venture.metrics.map((metric) => (
-                  <div
-                    key={metric.label}
-                    className="rounded-md border border-slate-200 bg-slate-50 p-4"
-                  >
-                    <p className="text-[32px] font-display tracking-[-0.02em] text-navy-900">
-                      {metric.value}
-                    </p>
-                    <p className="mt-1 text-[12px] text-slate-500">{metric.label}</p>
-                  </div>
-                ))}
-              </div>
-            </article>
-          </div>
-
-          <Link
-            href={withHash('/ventures')}
-            className="mt-8 inline-flex text-[14px] font-semibold text-navy-900 hover:text-amber-600"
+      <section className="mx-auto mt-12 grid max-w-container gap-4 px-6 md:grid-cols-3 md:px-12">
+        {venture.metrics.map((metric) => (
+          <article
+            key={metric.label}
+            className="rounded-lg border border-slate-200 bg-slate-50 p-5"
           >
-            ← Back to ventures directory
-          </Link>
-        </Container>
+            <p className="text-4xl font-display text-navy-900">{metric.value}</p>
+            <p className="mt-1 text-sm text-slate-500">{metric.label}</p>
+          </article>
+        ))}
       </section>
-    </SiteShell>
+
+      <section className="mx-auto mt-12 max-w-container px-6 md:px-12">
+        <div className="rounded-xl border border-slate-200 bg-white p-6">
+          <h2 className="text-3xl font-semibold tracking-[-0.02em] text-navy-900">
+            Operating profile
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-slate-600">{venture.summary}</p>
+          <p className="mt-2 text-sm text-slate-500">Website: {venture.website}</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="/ventures#ventures"
+              className="rounded-md border border-slate-300 px-4 py-2 text-sm font-medium text-navy-900 hover:border-navy-900"
+            >
+              Back to directory
+            </Link>
+            <Link
+              href="/contact#contact"
+              className="rounded-md bg-amber-500 px-4 py-2 text-sm font-medium text-navy-900 hover:bg-amber-600"
+            >
+              Contact group office
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

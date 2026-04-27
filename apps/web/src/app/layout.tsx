@@ -1,5 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter, Fraunces, JetBrains_Mono } from 'next/font/google';
+import { SiteNavigation } from '@/components/layout/SiteNavigation';
+import { SiteFooter } from '@/components/layout/SiteFooter';
+import { PageTransition } from '@/components/layout/PageTransition';
+import { HashRouteSync } from '@/components/layout/HashRouteSync';
+import { ToastProvider } from '@/components/ToastProvider';
 import './globals.css';
 
 const inter = Inter({
@@ -135,7 +140,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="font-sans bg-white text-navy-900 antialiased">{children}</body>
+      <body className="font-sans bg-white text-navy-900 antialiased">
+        <HashRouteSync />
+        <SiteNavigation />
+        <PageTransition>{children}</PageTransition>
+        <SiteFooter />
+        <ToastProvider />
+      </body>
     </html>
   );
 }

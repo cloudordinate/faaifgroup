@@ -1,134 +1,103 @@
-import { SiteShell } from '@/components/layout/SiteShell';
-import { Container } from '@/components/ui/Container';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { TechStack } from '@/components/shared/TechStack';
-
-const projects = [
-  {
-    title: 'Unified identity service',
-    body: 'Single sign-on model shared across all operating companies with role-aware access.',
-    tag: 'Platform',
-  },
-  {
-    title: 'Cross-venture analytics warehouse',
-    body: 'Federated model delivering board-level finance and operations intelligence.',
-    tag: 'Data',
-  },
-  {
-    title: 'Internal copilots for MDs',
-    body: 'Decision copilots restricted to group leadership with audited access.',
-    tag: 'AI',
-  },
-  {
-    title: 'Single-tenant deploy fleets',
-    body: 'Pre-customer pools for Cloud Ordinate enterprise clients with 1-click promotion.',
-    tag: 'Infra',
-  },
-];
+import { innovationProjects, labsStack } from '@/lib/site-data';
 
 export default function LabsPage() {
   return (
-    <SiteShell>
-      <section className="relative overflow-hidden bg-navy-900 py-16 text-white md:py-20">
-        <div
-          className="pointer-events-none absolute left-1/2 top-0 h-[350px] w-[900px] -translate-x-1/2"
-          style={{
-            background:
-              'radial-gradient(ellipse at center, rgba(245,158,11,0.2), rgba(15,23,42,0) 74%)',
-            filter: 'blur(20px)',
-          }}
-          aria-hidden="true"
-        />
-        <Container className="relative">
-          <Eyebrow className="mb-4 text-amber-500">FAAIF Labs · R&D</Eyebrow>
-          <h1 className="max-w-[820px] text-[54px] font-bold leading-[1.02] tracking-[-0.03em] md:text-[72px]">
-            Engineered for
-            <span className="ml-2 font-display font-normal italic">Excellence.</span>
+    <main className="pb-16 pt-14">
+      <section className="bg-navy-900 py-14 text-white md:py-20">
+        <div className="mx-auto max-w-container px-6 md:px-12">
+          <p className="eyebrow mb-4">FAAIF Labs · R&amp;D</p>
+          <h1 className="max-w-3xl text-5xl font-bold leading-[1.05] tracking-[-0.02em] md:text-7xl">
+            The Engine of Innovation.
           </h1>
-          <p className="mt-6 max-w-[700px] text-[16px] leading-relaxed text-slate-300">
-            Labs is the platform team serving every operating company. One codebase, one security
-            posture, one deployment pipeline.
+          <p className="mt-6 max-w-2xl text-sm leading-7 text-slate-300">
+            FAAIF Labs is the internal research, development, and engineering powerhouse of FAAIF
+            Group. It powers all five subsidiaries with world-class expertise in engineering,
+            security, and artificial intelligence.
           </p>
-
-          <div className="mt-10 grid grid-cols-2 gap-6 border-t border-slate-700 pt-8 md:grid-cols-4">
+          <div className="mt-10 grid gap-4 border-t border-white/15 pt-6 md:grid-cols-4">
             {[
-              ['142', 'Deploys / week'],
-              ['99.98%', 'Uptime'],
-              ['28', 'Platform engineers'],
-              ['0', 'SEV-1 in 90 days'],
-            ].map((metric) => (
-              <div key={metric[0]}>
-                <p className="text-[36px] font-display tracking-[-0.02em] text-white">
-                  {metric[0]}
-                </p>
-                <p className="mt-1 text-[12px] text-slate-400">{metric[1]}</p>
+              { label: 'Group subsidiaries', value: '5' },
+              { label: 'Core pillars', value: '3' },
+              { label: 'Engineering model', value: 'Full-stack' },
+              { label: 'Security stance', value: 'Enterprise-grade' },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="text-3xl font-display">{item.value}</p>
+                <p className="text-xs text-slate-400">{item.label}</p>
               </div>
             ))}
           </div>
-        </Container>
+        </div>
       </section>
 
-      <section className="bg-white py-14 md:py-16">
-        <Container>
-          <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-[1fr_1fr] md:items-end">
-            <h2 className="text-[42px] font-bold leading-[1.08] tracking-[-0.025em] text-navy-900">
-              Three pillars. One platform.
-            </h2>
-            <p className="text-[14px] leading-relaxed text-slate-600">
-              A deliberately small, boring stack. Every operating company deploys on the same
-              primitives.
-            </p>
-          </div>
-          <TechStack />
-        </Container>
+      <section className="mx-auto mt-14 max-w-container px-6 md:px-12">
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <h2 className="text-4xl font-semibold tracking-[-0.02em] text-navy-900">Engineering</h2>
+          <p className="max-w-xs text-sm text-slate-600">
+            Architecture, development, and optimization across frontend, backend, databases, and
+            APIs.
+          </p>
+        </div>
+        <TechStack items={labsStack} />
       </section>
 
-      <section className="bg-slate-50 py-14 md:py-16">
-        <Container>
-          <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-[1fr_1fr] md:items-end">
-            <h2 className="text-[42px] font-bold leading-[1.08] tracking-[-0.025em] text-navy-900">
-              What Labs is building now.
-            </h2>
-            <p className="text-[14px] leading-relaxed text-slate-600">
-              Platform work in long cycles. These are four active efforts in FY 2026.
+      <section className="mt-14 bg-slate-50 py-12">
+        <div className="mx-auto max-w-container px-6 md:px-12">
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <h2 className="text-4xl font-semibold tracking-[-0.02em] text-navy-900">Security</h2>
+            <p className="max-w-xs text-sm text-slate-600">
+              Secure API design, encrypted storage, vulnerability assessments, and compliance-first
+              delivery.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {projects.map((project) => (
+          <div className="grid gap-4 md:grid-cols-2">
+            {innovationProjects.map((project) => (
               <article
                 key={project.title}
-                className="rounded-xl border border-slate-200 bg-white p-6"
+                className="rounded-lg border border-slate-200 bg-white p-5"
               >
-                <p className="text-[11px] uppercase tracking-[0.07em] text-amber-500">
-                  {project.tag}
+                <p className="mb-2 inline-flex rounded-full bg-slate-100 px-2 py-1 text-[10px] uppercase tracking-[0.06em] text-slate-500">
+                  {project.status}
                 </p>
-                <h3 className="mt-2 text-[22px] font-semibold tracking-[-0.015em] text-navy-900">
-                  {project.title}
-                </h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-slate-600">{project.body}</p>
+                <h3 className="text-xl font-semibold text-navy-900">{project.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{project.body}</p>
               </article>
             ))}
           </div>
-        </Container>
+        </div>
       </section>
 
-      <section className="bg-white py-12 md:py-14">
-        <Container>
-          <div className="grid grid-cols-1 gap-5 border-t border-slate-200 pt-8 md:grid-cols-4">
+      <section className="mx-auto mt-12 max-w-container px-6 md:px-12">
+        <div className="border-t border-slate-200 pt-8">
+          <p className="eyebrow mb-3">Artificial Intelligence &amp; Machine Learning</p>
+          <div className="grid gap-4 md:grid-cols-4">
             {[
-              ['Boring by default', 'Choose durable stacks that scale with less process.'],
-              ['Typed end-to-end', 'TypeScript at edge, Prisma in data, and strict APIs.'],
-              ['Reversible decisions', 'Ship behind flags and keep rollback paths easy.'],
-              ['Observability first', 'Every deploy inspects request, traces, and SLO impact.'],
-            ].map((item) => (
-              <article key={item[0]}>
-                <h4 className="text-[17px] font-semibold text-navy-900">{item[0]}</h4>
-                <p className="mt-2 text-[13px] leading-relaxed text-slate-600">{item[1]}</p>
+              [
+                'Predictive Models',
+                'Design and deploy predictive models that solve real operational problems.',
+              ],
+              [
+                'Automation Frameworks',
+                'Build intelligent automation frameworks to reduce friction across ventures.',
+              ],
+              [
+                'Data Science Pipelines',
+                'Create robust data pipelines that support product intelligence at scale.',
+              ],
+              [
+                'Applied AI Outcomes',
+                'Optimize logistics, personalize user experiences, and power smart recommendations.',
+              ],
+            ].map(([title, text]) => (
+              <article key={title}>
+                <h3 className="text-sm font-semibold text-navy-900">{title}</h3>
+                <p className="mt-2 text-xs leading-6 text-slate-600">{text}</p>
               </article>
             ))}
           </div>
-        </Container>
+        </div>
       </section>
-    </SiteShell>
+    </main>
   );
 }

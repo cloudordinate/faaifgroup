@@ -1,36 +1,32 @@
 import Link from 'next/link';
-import { Venture } from '@/lib/ventures';
-import { withHash } from '@/lib/hashRoute';
+import { cn } from '@/lib/utils';
 
 interface BrandCardProps {
-  venture: Venture;
+  name: string;
+  category: string;
+  summary: string;
+  href: string;
+  year?: string;
+  className?: string;
 }
 
-export function BrandCard({ venture }: BrandCardProps) {
+export function BrandCard({ name, category, summary, href, year, className }: BrandCardProps) {
   return (
-    <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-1 transition-all duration-short ease-brand hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-2">
-      <div className="mb-4 flex items-center justify-between gap-3">
-        <p
-          className="text-[11px] uppercase tracking-[0.07em] text-slate-500"
-          style={{ fontFamily: 'var(--font-mono)' }}
-        >
-          {venture.sector}
-        </p>
-        <p className="text-[11px] text-slate-400">{venture.region}</p>
+    <article
+      className={cn(
+        'rounded-lg border border-slate-200 bg-white p-5 transition-colors hover:border-slate-300',
+        className
+      )}
+    >
+      <p className="mb-2 text-[10px] uppercase tracking-[0.08em] text-slate-500">{category}</p>
+      <h3 className="mb-2 text-xl font-semibold text-navy-900">{name}</h3>
+      <p className="mb-4 text-sm leading-6 text-slate-600">{summary}</p>
+      <div className="flex items-center justify-between text-[11px] text-slate-500">
+        <Link href={href} className="font-medium text-navy-900">
+          Visit subsidiary →
+        </Link>
+        {year ? <span>{year}</span> : null}
       </div>
-
-      <h3 className="mb-2 text-[26px] font-semibold tracking-[-0.02em] text-navy-900">
-        {venture.name}
-      </h3>
-      <p className="mb-5 text-[14px] leading-relaxed text-slate-600">{venture.oneLiner}</p>
-
-      <Link
-        href={withHash(`/ventures/${venture.slug}`)}
-        className="inline-flex items-center gap-2 text-[13px] font-medium text-navy-900 transition-colors duration-micro ease-brand hover:text-amber-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-      >
-        Visit subsidiary
-        <span aria-hidden="true">→</span>
-      </Link>
     </article>
   );
 }
